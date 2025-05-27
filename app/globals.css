@@ -5,71 +5,71 @@
 
 
 :root {
-    /* === MAIN BRAND COLORS (Purple, Blue, Black Theme) === */
-    /* Primary: Deep Purple */
-    --primary-color: #4e25af;          /* Main Brand Purple */
-    --primary-light: #A78BFA;         /* Light Purple for hover */
-    --primary-dark: #7C3AED;          /* Dark Purple for depth */
-    --primary-ultra-light: #DDD6FE;   /* Ultra light purple for backgrounds */
+    /* === MAIN BRAND COLORS (Cyan, Teal, Coral Theme) === */
+    /* Primary: Cyan Blue */
+    --primary-color: #00d4ff;          /* Main Brand Cyan */
+    --primary-light: #33ddff;         /* Light Cyan for hover */
+    --primary-dark: #00a8cc;          /* Dark Cyan for depth */
+    --primary-ultra-light: #e6f9ff;   /* Ultra light cyan for backgrounds */
     
-    /* Secondary: Electric Blue */
-    --secondary-color: #3B82F6;       /* Electric Blue */
-    --secondary-light: #60A5FA;       /* Light Blue for accents */
-    --secondary-dark: #2563EB;        /* Dark Blue for contrast */
-    --secondary-ultra-light: #DBEAFE; /* Ultra light blue for backgrounds */
+    /* Secondary: Cyan Green/Teal */
+    --secondary-color: #00ffcc;       /* Cyan Green/Teal */
+    --secondary-light: #33ffdd;       /* Light Teal for accents */
+    --secondary-dark: #00cc99;        /* Dark Teal for contrast */
+    --secondary-ultra-light: #e6fff9; /* Ultra light teal for backgrounds */
     
-    /* Accent: Indigo */
-    --accent-color: #6366F1;          /* Indigo accent */
-    --accent-light: #818CF8;          /* Light Indigo */
-    --accent-dark: #4F46E5;           /* Dark Indigo for depth */
-    --accent-muted: rgba(99, 102, 241, 0.8); /* Semi-transparent indigo */
+    /* Accent: Coral Red */
+    --accent-color: #ff6b6b;          /* Coral accent */
+    --accent-light: #ff8888;          /* Light Coral */
+    --accent-dark: #ff4444;           /* Dark Coral for depth */
+    --accent-muted: rgba(255, 107, 107, 0.8); /* Semi-transparent coral */
     
     /* === BACKGROUND COLORS === */
-    --dark-bg: #0F0F23;               /* Deep Purple-Black */
-    --darker-bg: #0A0A1A;             /* Ultra Dark Purple-Black */
-    --card-bg: rgba(139, 92, 246, 0.05); /* Subtle purple glass effect */
-    --card-hover-bg: rgba(139, 92, 246, 0.08); /* Purple hover state */
-    --section-bg: rgba(59, 130, 246, 0.03); /* Subtle blue tint */
+    --dark-bg: #0a0a0a;               /* Deep Black */
+    --darker-bg: #050505;             /* Ultra Dark Black */
+    --card-bg: rgba(0, 255, 204, 0.05); /* Subtle teal glass effect */
+    --card-hover-bg: rgba(0, 255, 204, 0.08); /* Teal hover state */
+    --section-bg: rgba(0, 212, 255, 0.03); /* Subtle cyan tint */
     
     /* === TEXT COLORS === */
     --text-primary: #FFFFFF;          /* Pure White */
     --text-secondary: rgba(255, 255, 255, 0.9); /* Bright White */
     --text-muted: rgba(255, 255, 255, 0.7); /* Muted White */
-    --text-accent: var(--primary-color); /* Purple for special text */
+    --text-accent: var(--primary-color); /* Cyan for special text */
     
     /* === GRADIENTS === */
-    --gradient-primary: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    --gradient-primary: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
     --gradient-secondary: linear-gradient(135deg, var(--primary-dark) 0%, var(--accent-color) 50%, var(--secondary-light) 100%);
-    --gradient-dark: linear-gradient(135deg, var(--dark-bg) 0%, #1a1a3a 100%);
-    --gradient-card: linear-gradient(135deg, rgba(139, 92, 246, 0.03) 0%, rgba(59, 130, 246, 0.03) 100%);
+    --gradient-dark: linear-gradient(135deg, var(--dark-bg) 0%, #1a1a1a 100%);
+    --gradient-card: linear-gradient(135deg, rgba(0, 255, 204, 0.03) 0%, rgba(0, 212, 255, 0.03) 100%);
     --gradient-accent: linear-gradient(90deg, var(--primary-color), var(--accent-color), var(--secondary-color));
     
-    /* === MUSIC-THEMED ACCENT COLORS (Purple/Blue shades) === */
-    --beat-color: var(--primary-dark);        /* Beat indicator - Dark Purple */
-    --waveform-color: var(--secondary-color); /* Audio waveform - Blue */
-    --frequency-color: var(--accent-light);   /* Frequency spectrum - Light Indigo */
-    --studio-color: var(--accent-dark);       /* Studio equipment - Dark Indigo */
+    /* === MUSIC-THEMED ACCENT COLORS (Cyan/Teal/Coral shades) === */
+    --beat-color: var(--primary-dark);        /* Beat indicator - Dark Cyan */
+    --waveform-color: var(--secondary-color); /* Audio waveform - Teal */
+    --frequency-color: var(--accent-light);   /* Frequency spectrum - Light Coral */
+    --studio-color: var(--accent-dark);       /* Studio equipment - Dark Coral */
     
     /* === STATUS COLORS (using main color shades) === */
-    --success-color: var(--secondary-color);     /* Success uses blue */
-    --warning-color: var(--accent-color);        /* Warning uses indigo */
-    --error-color: var(--primary-dark);          /* Error uses dark purple */
-    --info-color: var(--secondary-light);        /* Info uses light blue */
+    --success-color: var(--secondary-color);     /* Success uses teal */
+    --warning-color: var(--accent-color);        /* Warning uses coral */
+    --error-color: var(--accent-color);          /* Error uses coral */
+    --info-color: var(--primary-color);          /* Info uses cyan */
     
     /* === INTERACTIVE ELEMENTS === */
     --border-color: rgba(255, 255, 255, 0.1);
-    --border-focus: rgba(139, 92, 246, 0.6);
-    --hover-overlay: rgba(59, 130, 246, 0.08);
+    --border-focus: rgba(0, 255, 204, 0.6);
+    --hover-overlay: rgba(0, 212, 255, 0.08);
     --border-accent: 1px solid var(--accent-color);
     
     /* === SHADOWS & GLOWS === */
-    --shadow-primary: 0 8px 32px rgba(139, 92, 246, 0.25);
-    --shadow-secondary: 0 8px 32px rgba(59, 130, 246, 0.25);
-    --shadow-accent: 0 8px 32px rgba(99, 102, 241, 0.25);
-    --glow-primary: 0 0 30px rgba(139, 92, 246, 0.4);
-    --glow-secondary: 0 0 30px rgba(59, 130, 246, 0.4);
-    --glow-accent: 0 0 30px rgba(99, 102, 241, 0.4);
-    --glow-intense: 0 0 60px rgba(139, 92, 246, 0.3), 0 0 120px rgba(59, 130, 246, 0.2);
+    --shadow-primary: 0 8px 32px rgba(0, 212, 255, 0.25);
+    --shadow-secondary: 0 8px 32px rgba(0, 255, 204, 0.25);
+    --shadow-accent: 0 8px 32px rgba(255, 107, 107, 0.25);
+    --glow-primary: 0 0 30px rgba(0, 212, 255, 0.4);
+    --glow-secondary: 0 0 30px rgba(0, 255, 204, 0.4);
+    --glow-accent: 0 0 30px rgba(255, 107, 107, 0.4);
+    --glow-intense: 0 0 60px rgba(0, 212, 255, 0.3), 0 0 120px rgba(0, 255, 204, 0.2);
     
     /* === BUTTON VARIANTS === */
     --btn-primary-bg: var(--gradient-primary);
@@ -80,10 +80,10 @@
     --btn-outline-border: 2px solid var(--primary-color);
     
     /* === MUSIC VISUALIZATION === */
-    --viz-bass: var(--primary-color);        /* Low frequencies - Purple */
-    --viz-mid: var(--accent-color);          /* Mid frequencies - Indigo */
-    --viz-treble: var(--secondary-color);    /* High frequencies - Blue */
-    --viz-background: rgba(15, 15, 35, 0.9);
+    --viz-bass: var(--primary-color);        /* Low frequencies - Cyan */
+    --viz-mid: var(--accent-color);          /* Mid frequencies - Coral */
+    --viz-treble: var(--secondary-color);    /* High frequencies - Teal */
+    --viz-background: rgba(10, 10, 10, 0.9);
     
     /* === SPECIAL EFFECTS === */
     --neon-glow: drop-shadow(0 0 15px currentColor);
@@ -92,14 +92,14 @@
     --deep-glow: 0 0 20px currentColor, 0 0 40px currentColor;
     
     /* === LEGACY SUPPORT (for existing code) === */
-    --beat-red: var(--primary-dark);         /* Maps to dark purple */
-    --waveform-green: var(--secondary-color); /* Maps to blue */
-    --frequency-yellow: var(--accent-light); /* Maps to light indigo */
-    --studio-silver: var(--accent-dark);     /* Maps to dark indigo */
-    --success-green: var(--secondary-color); /* Maps to blue */
-    --warning-yellow: var(--accent-color);   /* Maps to indigo */
-    --error-red: var(--primary-dark);        /* Maps to dark purple */
-    --info-blue: var(--secondary-light);     /* Maps to light blue */
+    --beat-red: var(--accent-color);         /* Maps to coral */
+    --waveform-green: var(--secondary-color); /* Maps to teal */
+    --frequency-yellow: var(--primary-light); /* Maps to light cyan */
+    --studio-silver: var(--primary-dark);     /* Maps to dark cyan */
+    --success-green: var(--secondary-color); /* Maps to teal */
+    --warning-yellow: var(--accent-color);   /* Maps to coral */
+    --error-red: var(--accent-color);        /* Maps to coral */
+    --info-blue: var(--primary-color);       /* Maps to cyan */
 }
 
 
@@ -170,7 +170,7 @@ body {
     background: linear-gradient(
         45deg,
         transparent 30%,
-        rgba(139, 92, 246, 0.1) 50%,
+        rgba(0, 255, 204, 0.1) 50%,
         transparent 70%
     );
     background-size: 200% 200%;
@@ -265,7 +265,7 @@ body {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.3), transparent);
+    background: linear-gradient(90deg, transparent, rgba(0, 255, 204, 0.3), transparent);
     animation: liquidFlow 2s infinite;
 }
 
@@ -314,8 +314,8 @@ body {
     right: 0;
     bottom: 0;
     background-image: 
-        linear-gradient(rgba(139, 92, 246, 0.1) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(139, 92, 246, 0.1) 1px, transparent 1px);
+        linear-gradient(rgba(0, 255, 204, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 255, 204, 0.1) 1px, transparent 1px);
     background-size: 20px 20px;
     animation: gridMove 20s linear infinite;
     pointer-events: none;
@@ -871,7 +871,7 @@ body {
 .video-placeholder {
     width: 100%;
     height: 400px;
-    background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(59, 130, 246, 0.1));
+    background: linear-gradient(135deg, rgba(0, 255, 204, 0.1), rgba(0, 212, 255, 0.1));
     border-radius: 15px;
     display: flex;
     align-items: center;
@@ -1058,8 +1058,8 @@ body {
     right: 0;
     bottom: 0;
     background: 
-        radial-gradient(ellipse at center, rgba(139, 92, 246, 0.1) 0%, transparent 70%),
-        radial-gradient(ellipse at top right, rgba(59, 130, 246, 0.08) 0%, transparent 70%);
+        radial-gradient(ellipse at center, rgba(0, 255, 204, 0.1) 0%, transparent 70%),
+        radial-gradient(ellipse at top right, rgba(0, 212, 255, 0.08) 0%, transparent 70%);
     z-index: 1;
 }
 
@@ -1071,9 +1071,9 @@ body {
     width: 100%;
     height: 100%;
     background: 
-        radial-gradient(ellipse at center, rgba(139, 92, 246, 0.15) 0%, transparent 70%),
-        radial-gradient(ellipse at top right, rgba(59, 130, 246, 0.12) 0%, transparent 70%),
-        radial-gradient(ellipse at bottom left, rgba(99, 102, 241, 0.12) 0%, transparent 70%);
+        radial-gradient(ellipse at center, rgba(0, 255, 204, 0.15) 0%, transparent 70%),
+        radial-gradient(ellipse at top right, rgba(0, 212, 255, 0.12) 0%, transparent 70%),
+        radial-gradient(ellipse at bottom left, rgba(255, 107, 107, 0.12) 0%, transparent 70%);
     animation: gradientShift 20s ease-in-out infinite;
     z-index: 1;
     opacity: 0.8;
@@ -1120,7 +1120,7 @@ body {
 
 .floating-element {
     position: absolute;
-    background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(59, 130, 246, 0.1));
+    background: linear-gradient(135deg, rgba(0, 255, 204, 0.1), rgba(0, 212, 255, 0.1));
     border-radius: 50%;
     filter: blur(10px);
     animation: float 20s infinite linear;
@@ -1142,31 +1142,31 @@ body {
 .floating-element:nth-child(1) {
     animation-duration: 25s;
     animation-delay: -5s;
-    background: linear-gradient(135deg, rgba(139, 92, 246, 0.12), rgba(99, 102, 241, 0.08));
+    background: linear-gradient(135deg, rgba(0, 255, 204, 0.12), rgba(255, 107, 107, 0.08));
 }
 
 .floating-element:nth-child(2) {
     animation-duration: 18s;
     animation-delay: -10s;
-    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(0, 255, 204, 0.1));
 }
 
 .floating-element:nth-child(3) {
     animation-duration: 22s;
     animation-delay: -15s;
-    background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(59, 130, 246, 0.08));
+    background: linear-gradient(135deg, rgba(255, 107, 107, 0.1), rgba(0, 212, 255, 0.08));
 }
 
 .floating-element:nth-child(4) {
     animation-duration: 30s;
     animation-delay: -20s;
-    background: linear-gradient(135deg, rgba(139, 92, 246, 0.08), rgba(99, 102, 241, 0.12));
+    background: linear-gradient(135deg, rgba(0, 255, 204, 0.08), rgba(255, 107, 107, 0.12));
 }
 
 .floating-element:nth-child(5) {
     animation-duration: 16s;
     animation-delay: -8s;
-    background: linear-gradient(135deg, rgba(59, 130, 246, 0.12), rgba(139, 92, 246, 0.08));
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.12), rgba(0, 255, 204, 0.08));
 }
 
 /* Responsive Design */

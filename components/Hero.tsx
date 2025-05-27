@@ -16,7 +16,7 @@ export default function Hero() {
       <div className="hero-content">
         <div className="hero-badge glass-effect" style={{
           background: 'rgba(255, 107, 53, 0.1)',
-          border: '1px solid rgba(255, 107, 53, 0.3)',
+          border: '1px solid rgba(255, 107, 53,0.3)',
           color: 'var(--primary-color)'
         }}>
           <i className="fas fa-rocket" style={{color: 'var(--primary-color)'}}></i>

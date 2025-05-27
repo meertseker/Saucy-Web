@@ -1,0 +1,1505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saucy AI - Professional Vocal Mixing in Seconds</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #00d4ff;
+            --secondary-color: #00ffcc;
+            --accent-color: #ff6b6b;
+            --dark-bg: #0a0a0a;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --text-primary: #ffffff;
+            --text-secondary: rgba(255, 255, 255, 0.7);
+            --border-color: rgba(255, 255, 255, 0.1);
+            --gradient-primary: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
+            --shadow-glow: 0 20px 40px rgba(0, 212, 255, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--dark-bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            background: rgba(10, 10, 10, 0.98);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--secondary-color);
+        }
+
+        .nav-cta {
+            background: var(--gradient-primary);
+            color: var(--dark-bg);
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-glow);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 8rem 2rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 1000px;
+            z-index: 2;
+            position: relative;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(0, 255, 204, 0.1);
+            border: 1px solid rgba(0, 255, 204, 0.3);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            color: var(--secondary-color);
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .hero-title {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease-out 0.6s both;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: var(--dark-bg);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            border: 2px solid var(--border-color);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-glow);
+        }
+
+        /* Social Proof Section */
+        .social-proof {
+            padding: 4rem 2rem;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .social-proof-content {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .social-proof h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .stat-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--secondary-color);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        /* Testimonials */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+
+        .testimonial-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--secondary-color);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .testimonial-content {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: var(--dark-bg);
+        }
+
+        .author-info h4 {
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .author-info p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Sound Comparison Section */
+        .sound-comparison {
+            padding: 6rem 2rem;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .comparison-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .comparison-header h2 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .audio-comparison {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3rem;
+            margin: 4rem 0;
+        }
+
+        .audio-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .audio-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--secondary-color);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .audio-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .audio-player {
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .play-button {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: var(--gradient-primary);
+            border: none;
+            color: var(--dark-bg);
+            font-size: 2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 1rem;
+        }
+
+        .play-button:hover {
+            transform: scale(1.1);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .waveform {
+            height: 60px;
+            background: linear-gradient(90deg, var(--secondary-color), var(--primary-color));
+            border-radius: 10px;
+            margin: 1rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .waveform::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: repeating-linear-gradient(
+                90deg,
+                transparent 0px,
+                transparent 2px,
+                rgba(255, 255, 255, 0.1) 2px,
+                rgba(255, 255, 255, 0.1) 4px
+            );
+        }
+
+        /* How It Works Section */
+        .how-it-works {
+            padding: 6rem 2rem;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin: 4rem 0;
+        }
+
+        .step-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .step-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--secondary-color);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .step-number {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 40px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: var(--dark-bg);
+        }
+
+        .step-icon {
+            font-size: 3rem;
+            margin: 2rem 0 1rem;
+            color: var(--secondary-color);
+        }
+
+        .step-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .step-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 6rem 2rem;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 2.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--secondary-color);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--gradient-primary);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--dark-bg);
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .feature-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Video Section */
+        .video-section {
+            padding: 6rem 2rem;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .video-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .video-wrapper {
+            position: relative;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 3rem 0;
+        }
+
+        .video-placeholder {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, rgba(0, 255, 204, 0.1), rgba(0, 212, 255, 0.1));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .video-play-btn {
+            width: 100px;
+            height: 100px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            border: none;
+            color: var(--dark-bg);
+            font-size: 2.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .video-play-btn:hover {
+            transform: scale(1.1);
+            box-shadow: var(--shadow-glow);
+        }
+
+        /* Pricing Section */
+        .pricing {
+            padding: 6rem 2rem;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .pricing-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .pricing-card.featured {
+            border-color: var(--secondary-color);
+            transform: scale(1.05);
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--secondary-color);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .pricing-card.featured:hover {
+            transform: scale(1.05) translateY(-5px);
+        }
+
+        .pricing-badge {
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gradient-primary);
+            color: var(--dark-bg);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .pricing-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .pricing-price {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .pricing-period {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .pricing-features li {
+            padding: 0.5rem 0;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .pricing-features li i {
+            color: var(--secondary-color);
+        }
+
+        /* Footer */
+        .footer {
+            padding: 4rem 2rem 2rem;
+            background: rgba(0, 0, 0, 0.5);
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+
+        .footer-section h3 {
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .footer-section a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--secondary-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-secondary);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* Background Effects */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(ellipse at center, rgba(0, 255, 204, 0.1) 0%, transparent 70%),
+                radial-gradient(ellipse at top right, rgba(0, 212, 255, 0.08) 0%, transparent 70%);
+            z-index: 1;
+        }
+
+        /* Animated Background Elements */
+        .background-gradient {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(ellipse at center, rgba(0, 255, 204, 0.15) 0%, transparent 70%),
+                radial-gradient(ellipse at top right, rgba(0, 123, 255, 0.12) 0%, transparent 70%),
+                radial-gradient(ellipse at bottom left, rgba(255, 0, 128, 0.12) 0%, transparent 70%);
+            animation: gradientShift 20s ease-in-out infinite;
+            z-index: 1;
+            opacity: 0.8;
+            transition: opacity 0.5s ease;
+        }
+
+        .background-gradient.faded {
+            opacity: 0.2;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            50% { transform: scale(1.1) rotate(180deg); }
+        }
+
+        /* Particle Canvas */
+        .particles-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.6;
+            transition: opacity 0.5s ease;
+        }
+
+        .particles-container.faded {
+            opacity: 0.15;
+        }
+
+        /* Floating Elements */
+        .floating-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+            transition: opacity 0.5s ease;
+        }
+
+        .hero .floating-elements.faded {
+            opacity: 0.3;
+        }
+
+        .floating-element {
+            position: absolute;
+            background: linear-gradient(135deg, rgba(0, 255, 204, 0.1), rgba(0, 212, 255, 0.1));
+            border-radius: 50%;
+            filter: blur(10px);
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            50% {
+                transform: translate(100px, 100px) rotate(180deg);
+            }
+            100% {
+                transform: translate(0, 0) rotate(360deg);
+            }
+        }
+
+        /* Additional floating animations */
+        .floating-element:nth-child(1) {
+            animation-duration: 25s;
+            animation-delay: -5s;
+        }
+
+        .floating-element:nth-child(2) {
+            animation-duration: 18s;
+            animation-delay: -10s;
+        }
+
+        .floating-element:nth-child(3) {
+            animation-duration: 22s;
+            animation-delay: -15s;
+        }
+
+        .floating-element:nth-child(4) {
+            animation-duration: 30s;
+            animation-delay: -20s;
+        }
+
+        .floating-element:nth-child(5) {
+            animation-duration: 16s;
+            animation-delay: -8s;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+
+            .audio-comparison {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-card.featured {
+                transform: none;
+            }
+
+            .pricing-card.featured:hover {
+                transform: translateY(-5px);
+            }
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Effects -->
+    <div class="background-gradient"></div>
+    <canvas class="particles-container" id="particles"></canvas>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">Saucy AI</a>
+            <ul class="nav-links">
+                <li><a href="#features" class="nav-link">Features</a></li>
+                <li><a href="#how-it-works" class="nav-link">How It Works</a></li>
+                <li><a href="#pricing" class="nav-link">Pricing</a></li>
+                <li><a href="#" class="nav-link nav-cta">Get Early Access</a></li>
+            </ul>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="floating-elements"></div>
+        <div class="hero-content">
+            <div class="hero-badge">
+                <i class="fas fa-rocket"></i>
+                <span>2,300+ producers on waitlist</span>
+            </div>
+            <h1 class="hero-title">Your Vocals. Radio-Ready. One Click.</h1>
+            <p class="hero-subtitle">
+                Transform raw vocals into professional mixes with AI-powered presets. 
+                Get studio-quality results in seconds, not hours.
+            </p>
+            <div class="hero-cta">
+                <a href="#" class="btn btn-primary">
+                    <i class="fas fa-upload"></i>
+                    Upload & Try Free
+                </a>
+                <a href="#demo" class="btn btn-secondary">
+                    <i class="fas fa-play"></i>
+                    Watch Demo
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof Section -->
+    <section class="social-proof">
+        <div class="container">
+            <div class="social-proof-content">
+                <h2>Trusted by Producers Worldwide</h2>
+                <p class="hero-subtitle">Join thousands of artists creating professional music</p>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">2,300+</div>
+                    <div class="stat-label">Beta Users</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">&lt;3s</div>
+                    <div class="stat-label">Processing Time</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Preset Styles</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">99.9%</div>
+                    <div class="stat-label">Uptime</div>
+                </div>
+            </div>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        "Just got a better mix in 10 seconds than my 3-hour work. This is game-changing for independent artists."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">OG</div>
+                        <div class="author-info">
+                            <h4>Oguz Sglmz</h4>
+                            <p>Producer & Artist</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        "Finally, presets that actually work. My vocals sit perfectly in the mix every time."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">MK</div>
+                        <div class="author-info">
+                            <h4>Mike Chen</h4>
+                            <p>Hip-Hop Producer</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        "Saucy AI saved me hundreds of hours. The quality is indistinguishable from professional mixing."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">SA</div>
+                        <div class="author-info">
+                            <h4>Sarah Adams</h4>
+                            <p>Singer-Songwriter</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sound Comparison Section -->
+    <section class="sound-comparison" id="demo">
+        <div class="container">
+            <div class="comparison-header">
+                <h2>Hear the Difference</h2>
+                <p class="hero-subtitle">Listen to before and after examples of our AI processing</p>
+            </div>
+            
+            <div class="audio-comparison">
+                <div class="audio-card">
+                    <h3>Before: Raw Vocal</h3>
+                    <div class="audio-player">
+                        <button class="play-button">
+                            <i class="fas fa-play"></i>
+                        </button>
+                        <div class="waveform"></div>
+                        <p>Unprocessed iPhone recording</p>
+                    </div>
+                </div>
+                <div class="audio-card">
+                    <h3>After: Saucy AI</h3>
+                    <div class="audio-player">
+                        <button class="play-button">
+                            <i class="fas fa-play"></i>
+                        </button>
+                        <div class="waveform"></div>
+                        <p>Professional mix in 3 seconds</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="audio-comparison">
+                <div class="audio-card">
+                    <h3>Drill Style</h3>
+                    <div class="audio-player">
+                        <button class="play-button">
+                            <i class="fas fa-play"></i>
+                        </button>
+                        <div class="waveform"></div>
+                        <p>Aggressive, punchy vocals</p>
+                    </div>
+                </div>
+                <div class="audio-card">
+                    <h3>R&B Style</h3>
+                    <div class="audio-player">
+                        <button class="play-button">
+                            <i class="fas fa-play"></i>
+                        </button>
+                        <div class="waveform"></div>
+                        <p>Smooth, polished vocals</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <div class="comparison-header">
+                <h2>How It Works</h2>
+                <p class="hero-subtitle">Professional vocal mixing in three simple steps</p>
+            </div>
+            
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <div class="step-icon">
+                        <i class="fas fa-upload"></i>
+                    </div>
+                    <h3 class="step-title">Upload Your Vocal</h3>
+                    <p class="step-description">
+                        Drop your raw vocal file - recorded on anything from iPhone to studio mics. 
+                        Our AI analyzes the audio characteristics instantly.
+                    </p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <div class="step-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3 class="step-title">AI Analysis</h3>
+                    <p class="step-description">
+                        Advanced algorithms analyze tone, dynamics, and frequency content to determine 
+                        the optimal processing chain for your specific vocal.
+                    </p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <div class="step-icon">
+                        <i class="fas fa-download"></i>
+                    </div>
+                    <h3 class="step-title">Download Preset</h3>
+                    <p class="step-description">
+                        Get your custom FL Studio preset instantly. Drag, drop, and your vocals 
+                        are professionally mixed and ready for your track.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="comparison-header">
+                <h2>Powerful Features</h2>
+                <p class="hero-subtitle">Everything you need for professional vocal production</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-magic"></i>
+                    </div>
+                    <h3 class="feature-title">Smart AI Processing</h3>
+                    <p class="feature-description">
+                        Our AI analyzes your vocal's unique characteristics and creates a custom processing 
+                        chain with EQ, compression, reverb, and effects tailored specifically for your voice.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3 class="feature-title">Lightning Fast</h3>
+                    <p class="feature-description">
+                        Get professional results in under 3 seconds. No more spending hours tweaking 
+                        settings - our AI does the heavy lifting so you can focus on creating.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-sliders-h"></i>
+                    </div>
+                    <h3 class="feature-title">Multiple Styles</h3>
+                    <p class="feature-description">
+                        Choose from 50+ preset styles including Drill, Trap, R&B, Pop, and more. 
+                        Each style is crafted by professional engineers for authentic sound.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-cog"></i>
+                    </div>
+                    <h3 class="feature-title">FL Studio Ready</h3>
+                    <p class="feature-description">
+                        Presets work seamlessly with FL Studio's native plugins. No additional 
+                        software required - just drag, drop, and you're ready to go.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-microphone"></i>
+                    </div>
+                    <h3 class="feature-title">Any Recording Quality</h3>
+                    <p class="feature-description">
+                        Whether you recorded on your phone or in a professional studio, our AI 
+                        adapts to your source material and delivers consistent, high-quality results.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3 class="feature-title">Cloud Processing</h3>
+                    <p class="feature-description">
+                        Powerful cloud infrastructure ensures fast processing and 99.9% uptime. 
+                        Access your presets from anywhere, anytime.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="video-section">
+        <div class="container">
+            <div class="video-container">
+                <h2 class="comparison-header" style="margin-bottom: 1rem;">See Saucy AI in Action</h2>
+                <p class="hero-subtitle">Watch how easy it is to get professional vocal mixes</p>
+                
+                <div class="video-wrapper">
+                    <div class="video-placeholder">
+                        <button class="video-play-btn">
+                            <i class="fas fa-play"></i>
+                        </button>
+                    </div>
+                    <h3 style="margin-top: 1rem; color: var(--text-primary);">From Raw Recording to Radio Ready</h3>
+                    <p style="color: var(--text-secondary);">See the complete workflow in under 2 minutes</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <div class="comparison-header">
+                <h2>Simple Pricing</h2>
+                <p class="hero-subtitle">Choose the plan that fits your creative needs</p>
+            </div>
+            
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3 class="pricing-title">Starter</h3>
+                    <div class="pricing-price">$9</div>
+                    <div class="pricing-period">per month</div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> 50 vocal processes/month</li>
+                        <li><i class="fas fa-check"></i> 10 preset styles</li>
+                        <li><i class="fas fa-check"></i> FL Studio presets</li>
+                        <li><i class="fas fa-check"></i> Email support</li>
+                    </ul>
+                    <a href="#" class="btn btn-secondary" style="width: 100%;">Get Started</a>
+                </div>
+                
+                <div class="pricing-card featured">
+                    <div class="pricing-badge">Most Popular</div>
+                    <h3 class="pricing-title">Pro</h3>
+                    <div class="pricing-price">$19</div>
+                    <div class="pricing-period">per month</div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Unlimited vocal processes</li>
+                        <li><i class="fas fa-check"></i> 50+ preset styles</li>
+                        <li><i class="fas fa-check"></i> All DAW formats</li>
+                        <li><i class="fas fa-check"></i> Priority support</li>
+                        <li><i class="fas fa-check"></i> Custom style requests</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary" style="width: 100%;">Start Free Trial</a>
+                </div>
+                
+                <div class="pricing-card">
+                    <h3 class="pricing-title">Studio</h3>
+                    <div class="pricing-price">$49</div>
+                    <div class="pricing-period">per month</div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Everything in Pro</li>
+                        <li><i class="fas fa-check"></i> Team collaboration</li>
+                        <li><i class="fas fa-check"></i> API access</li>
+                        <li><i class="fas fa-check"></i> White-label options</li>
+                        <li><i class="fas fa-check"></i> Dedicated support</li>
+                    </ul>
+                    <a href="#" class="btn btn-secondary" style="width: 100%;">Contact Sales</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Product</h3>
+                <a href="#">Features</a>
+                <a href="#">Pricing</a>
+                <a href="#">API</a>
+                <a href="#">Documentation</a>
+            </div>
+            <div class="footer-section">
+                <h3>Company</h3>
+                <a href="#">About</a>
+                <a href="#">Blog</a>
+                <a href="#">Careers</a>
+                <a href="#">Contact</a>
+            </div>
+            <div class="footer-section">
+                <h3>Support</h3>
+                <a href="#">Help Center</a>
+                <a href="#">Community</a>
+                <a href="#">Status</a>
+                <a href="#">Bug Reports</a>
+            </div>
+            <div class="footer-section">
+                <h3>Connect</h3>
+                <a href="#">Twitter</a>
+                <a href="#">Instagram</a>
+                <a href="#">LinkedIn</a>
+                <a href="#">Discord</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Saucy AI. All rights reserved. | Privacy Policy | Terms of Service</p>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar scroll effect and background fade
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            const backgroundGradient = document.querySelector('.background-gradient');
+            const particlesContainer = document.querySelector('.particles-container');
+            const floatingElements = document.querySelector('.floating-elements');
+            const heroSection = document.querySelector('.hero');
+            
+            const scrollY = window.scrollY;
+            const heroHeight = heroSection.offsetHeight;
+            
+            // Navbar effect
+            if (scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+            
+            // Background fade effect - start fading after 30% of hero section
+            const fadeStartPoint = heroHeight * 0.3;
+            
+            if (scrollY > fadeStartPoint) {
+                backgroundGradient.classList.add('faded');
+                particlesContainer.classList.add('faded');
+                if (floatingElements) {
+                    floatingElements.classList.add('faded');
+                }
+            } else {
+                backgroundGradient.classList.remove('faded');
+                particlesContainer.classList.remove('faded');
+                if (floatingElements) {
+                    floatingElements.classList.remove('faded');
+                }
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Audio player functionality
+        document.querySelectorAll('.play-button').forEach(button => {
+            button.addEventListener('click', function() {
+                const icon = this.querySelector('i');
+                if (icon.classList.contains('fa-play')) {
+                    icon.classList.remove('fa-play');
+                    icon.classList.add('fa-pause');
+                    // Add audio playing logic here
+                } else {
+                    icon.classList.remove('fa-pause');
+                    icon.classList.add('fa-play');
+                    // Add audio pause logic here
+                }
+            });
+        });
+
+        // Video player functionality
+        document.querySelector('.video-play-btn').addEventListener('click', function() {
+            // Add video playing logic here
+            alert('Video demo would play here');
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.stat-card, .testimonial-card, .step-card, .feature-card, .pricing-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'all 0.6s ease-out';
+            observer.observe(el);
+        });
+
+        // Add staggered animation delays
+        document.querySelectorAll('.testimonial-card').forEach((card, index) => {
+            card.style.transitionDelay = `${index * 0.1}s`;
+        });
+
+        document.querySelectorAll('.step-card').forEach((card, index) => {
+            card.style.transitionDelay = `${index * 0.2}s`;
+        });
+
+        document.querySelectorAll('.feature-card').forEach((card, index) => {
+            card.style.transitionDelay = `${index * 0.1}s`;
+        });
+
+        // Enhanced particle effect
+        function createBackgroundEffect() {
+            const canvas = document.getElementById('particles');
+            const ctx = canvas.getContext('2d');
+            
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            
+            const particles = [];
+            const particleCount = 100;
+            
+            for (let i = 0; i < particleCount; i++) {
+                particles.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    size: Math.random() * 2 + 0.5,
+                    speedX: (Math.random() - 0.5) * 0.5,
+                    speedY: (Math.random() - 0.5) * 0.5,
+                    opacity: Math.random() * 0.5 + 0.2,
+                    hue: Math.random() * 60 - 30 // Variation in color
+                });
+            }
+            
+            function animate() {
+                ctx.fillStyle = 'rgba(10, 10, 10, 0.1)';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                
+                particles.forEach(particle => {
+                    particle.x += particle.speedX;
+                    particle.y += particle.speedY;
+                    
+                    if (particle.x > canvas.width) particle.x = 0;
+                    if (particle.x < 0) particle.x = canvas.width;
+                    if (particle.y > canvas.height) particle.y = 0;
+                    if (particle.y < 0) particle.y = canvas.height;
+                    
+                    // Dynamic color based on position
+                    const baseHue = 160; // Cyan base
+                    const hue = baseHue + particle.hue;
+                    ctx.fillStyle = `hsla(${hue}, 100%, 70%, ${particle.opacity})`;
+                    ctx.beginPath();
+                    ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+                    ctx.fill();
+                });
+                
+                // Enhanced connections
+                particles.forEach((particle, index) => {
+                    for (let j = index + 1; j < particles.length; j++) {
+                        const dx = particles[j].x - particle.x;
+                        const dy = particles[j].y - particle.y;
+                        const distance = Math.sqrt(dx * dx + dy * dy);
+                        
+                        if (distance < 150) {
+                            ctx.strokeStyle = `rgba(0, 255, 204, ${0.15 * (1 - distance / 150)})`;
+                            ctx.lineWidth = 0.5;
+                            ctx.beginPath();
+                            ctx.moveTo(particle.x, particle.y);
+                            ctx.lineTo(particles[j].x, particles[j].y);
+                            ctx.stroke();
+                        }
+                    }
+                });
+                
+                requestAnimationFrame(animate);
+            }
+            
+            animate();
+        }
+
+        // Create floating elements
+        function createFloatingElements() {
+            const container = document.querySelector('.floating-elements');
+            const numElements = 5;
+            
+            for (let i = 0; i < numElements; i++) {
+                const element = document.createElement('div');
+                element.className = 'floating-element';
+                element.style.width = Math.random() * 300 + 100 + 'px';
+                element.style.height = element.style.width;
+                element.style.left = Math.random() * 100 + '%';
+                element.style.top = Math.random() * 100 + '%';
+                element.style.animationDelay = -Math.random() * 20 + 's';
+                container.appendChild(element);
+            }
+        }
+
+        // Start background animations
+        window.addEventListener('load', () => {
+            createBackgroundEffect();
+            createFloatingElements();
+        });
+
+        // Handle window resize for particles
+        window.addEventListener('resize', () => {
+            const canvas = document.querySelector('canvas');
+            if (canvas) {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+        });
+    </script>
+</body>
+</html> 
