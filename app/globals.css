@@ -1170,7 +1170,55 @@ body {
 }
 
 /* Responsive Design */
+/* Mobile Performance Optimizations */
 @media (max-width: 768px) {
+    /* Reduce animations and effects on mobile */
+    .tilt-card {
+        transform: none !important;
+        transition: none;
+    }
+    
+    .tilt-card:hover {
+        transform: none !important;
+    }
+    
+    /* Disable parallax on mobile */
+    .parallax-element {
+        transform: none !important;
+    }
+    
+    /* Reduce particle effects */
+    .particles-container {
+        opacity: 0.3;
+    }
+    
+    /* Disable floating elements on mobile */
+    .floating-elements {
+        display: none;
+    }
+    
+    /* Optimize animations for mobile */
+    .musical-note {
+        display: none;
+    }
+    
+    /* Reduce motion for better performance */
+    .float-animation {
+        animation: none;
+    }
+    
+    /* Simplify gradients on mobile */
+    .morphing-border::before {
+        animation: none;
+        background: var(--primary-color);
+    }
+    
+    .holographic {
+        animation: none;
+        background: rgba(0, 255, 204, 0.05);
+    }
+    
+    /* Navigation optimizations */
     .nav-links {
         display: none;
     }
@@ -1196,6 +1244,70 @@ body {
 
     .pricing-card.featured:hover {
         transform: translateY(-5px);
+    }
+    
+    /* Optimize text rendering */
+    .hero-title {
+        text-rendering: optimizeSpeed;
+    }
+    
+    /* Reduce blur effects */
+    .glass-effect {
+        backdrop-filter: blur(10px);
+    }
+    
+    .navbar {
+        backdrop-filter: blur(10px);
+    }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    .particles-container {
+        display: none;
+    }
+    
+    .floating-elements {
+        display: none;
+    }
+    
+    .musical-note {
+        display: none;
+    }
+}
+
+/* Performance optimizations for all devices */
+.performance-optimized {
+    will-change: auto;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+/* Loading screen animations */
+.animation-delay-2000 {
+    animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+    animation-delay: 4s;
+}
+
+/* Smooth transitions for loading */
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
     }
 }
 
